@@ -1,0 +1,142 @@
+<!--
+Code is adapted from an MDL template which can be found at:
+https://getmdl.io/templates/dashboard/index.html
+-->
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Moodle-2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-teal.min.css">
+  <link rel="stylesheet" href="UI_styles.css">
+</head>
+
+<body>
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title"> Welcome {{#if name}} {{name}} {{/if}} </span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="settingsbtn">
+          <i class="material-icons">settings</i>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="settingsbtn">
+          <li class="mdl-menu__item">Switch View</li>
+          <li class="mdl-menu__item">Log Out</li>
+        </ul>
+      </div>
+    </header>
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+      <header class="demo-drawer-header">
+        <div class="demo-avatar-dropdown">
+          <span><b>   Your Units</b></span>
+        </div>
+      </header>
+      <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+        {{#if unit1}}
+        <a class="mdl-navigation__link accordion">{{#if unit1}} {{unit1}} {{/if}}</a>
+        <div class="panel">
+          {{#if_eq role "Head" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}} {{#if_eq role "Tutor" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}}
+          <a class="mdl-navigation__link" href="">Groups</a>
+          <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+          <a class="mdl-navigation__link" href="">Grades</a>
+        </div>
+        {{/if}}
+        {{#if unit2}}
+        <a class="mdl-navigation__link accordion">{{#if unit2}} {{unit2}} {{/if}}</a>
+        <div class="panel">
+          {{#if_eq role "Head" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}} {{#if_eq role "Tutor" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}}
+
+          <a class="mdl-navigation__link" href="">Groups</a>
+          <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+          <a class="mdl-navigation__link" href="">Grades</a>
+        </div>
+        {{/if}}
+        {{#if unit3}}
+        <a class="mdl-navigation__link accordion">{{#if unit3}} {{unit3}} {{/if}}</a>
+        <div class="panel">
+          {{#if_eq role "Head" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}} {{#if_eq role "Tutor" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}}
+
+          <a class="mdl-navigation__link" href="">Groups</a>
+          <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+          <a class="mdl-navigation__link" href="">Grades</a>
+        </div>
+        {{/if}}
+        {{#if unit4}}
+        <a class="mdl-navigation__link accordion">{{#if unit4}} {{unit4}} {{/if}}</a>
+        <div class="panel">
+          {{#if_eq role "Head" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}} {{#if_eq role "Tutor" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}}
+
+          <a class="mdl-navigation__link" href="">Groups</a>
+          <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+          <a class="mdl-navigation__link" href="">Grades</a>
+        </div>
+        {{/if}}
+        {{#if unit5}}
+        <a class="mdl-navigation__link accordion">{{#if unit5}} {{unit5}} {{/if}}</a>
+        <div class="panel">
+          {{#if_eq role "Head" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}} {{#if_eq role "Tutor" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}}
+
+          <a class="mdl-navigation__link" href="">Groups</a>
+          <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+          <a class="mdl-navigation__link" href="">Grades</a>
+        </div>
+        {{/if}}
+        {{#if unit6}}
+        <a class="mdl-navigation__link accordion">{{#if unit6}} {{unit6}} {{/if}}</a>
+        <div class="panel">
+          {{#if_eq role "Head" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}} {{#if_eq role "Tutor" }}
+          <a class="mdl-navigation__link" href="">Edit Groups</a>
+          {{/if_eq}}
+
+          <a class="mdl-navigation__link" href="">Groups</a>
+          <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+          <a class="mdl-navigation__link" href="">Grades</a>
+        </div>
+        {{/if}}
+
+        <div class="mdl-layout-spacer"></div>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+      </nav>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+  <script src="UI_Interactive.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+  </html>

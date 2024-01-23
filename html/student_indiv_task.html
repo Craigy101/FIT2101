@@ -1,0 +1,186 @@
+<!--
+    Code is adapted from an MDL template which can be found at:
+      https://getmdl.io/templates/dashboard/index.html
+-->
+
+<!doctype html>
+
+
+<html lang="en">
+  <head>
+    <title>Application Name</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-teal.min.css">
+    <link rel="stylesheet" href="UI_styles.css">
+  </head>
+  <body onload="student_indiv_task()">
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"> Moodle2 </span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="settingsbtn">
+            <i class="material-icons">settings</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="settingsbtn">
+            <li class="mdl-menu__item">Switch View</li>
+            <li class="mdl-menu__item" onclick="/login">Log Out</li>
+          </ul>
+        </div>
+      </header>
+      <div class="big-div-margins">
+        <span class="mdl-layout-title" id="task_description"></span>
+        <span id="task_unit"></span>
+        <span id="task_due"></span>
+      </div>
+
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp demo-graphs" style="cursor: pointer;" id="student_task_table">
+        <colgroup>
+          <col width="10%" />
+          <col width="0.1px" />
+          <col width="0.1px" />
+          <col width="20%"  />
+          <col width="10%" />
+          <col width="10%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric" colspan="3">Group Members</th>
+            <th style="text-align: left">Group ID</th>
+            <th style="text-align: center"><b>Submitted<b></th>
+            <th style="text-align: center"><b>Graded<b></th>
+          </tr>
+        </thead>
+        <!--<tbody>
+          <tr onclick="get_table_contents()" id="12345" value="None">
+            <td class="mdl-data-table__cell--non-numeric" colspan="3">Maya Perkins, Tiana Richards, April Grant, Paige Jones</td>
+            <td style="text-align: left">12345</td>
+            <td style="text-align: center">
+              <span class="material-icons">check_box</span>
+            </td>
+            <td style="text-align: center">
+              <span class="material-icons">check_box</span>
+            </td>
+          </tr>
+          <tr style="background-color: silver; visibility: collapse;" class="12345">
+            <td class="mdl-data-table__cell--non-numeric"><b>Members</b><br>Maya Perkins<br>Tiana Richards<br>April Grant<br>Paige Jones</td>
+            <td style="text-align: left"><b> Time Contribution</b><br>2 Hours<br>1 Hour<br>1.5 Hours<br>2 Hours</td>
+            <td style="text-align: left">(File/Submission)</td>
+            <td style="text-align: center" id="12345_grades"><b>Grade</b><br>A<br>C<br>B<br>A</td>
+            <td style="text-align: left" id="12345_comments"><b>Comments</b><br>
+              Good Job<br>
+              You Tried!<br>
+              Well Done<br>
+              See Me After Class
+            </td>
+            <td style="text-align: center">
+              <button onclick="edit_grades('12345')" id=12345_edit value="edit"> Edit Grades </button>
+            </td>
+          </tr>
+          <tr onclick="get_table_contents()" id="67890" value="None">
+            <td class="mdl-data-table__cell--non-numeric" colspan="3">Adelaide Cameron, Harold Williams, Reid Bailey, Byron Martin</td>
+            <td style="text-align: left">67890</td>
+            <td style="text-align: center">
+              <span class="material-icons">check_box</span>
+            </td>
+            <td style="text-align: center">
+              <span class="material-icons">check_box</span>
+            </td>
+          </tr>
+          <tr style="background-color: silver; visibility: collapse;" class="67890">
+            <td class="mdl-data-table__cell--non-numeric"><b>Members</b><br>Adelaide Cameron<br>Harold Williams<br>Reid Bailey<br>Byron Martin</td>
+            <td style="text-align: left"><b>Time Contribution</b><br>1 Hours<br>2 Hour<br>2.5 Hours<br>2 Hours</td>
+            <td style="text-align: left">(File/Submission)</td>
+            <td style="text-align: center" id="67890_grades"><b>Grade</b><br>C<br>B<br>A<br>B</td>
+            <td style="text-align: left" id="67890_comments"><b>Comments</b><br>
+              Good Attempt<br>
+              Getting Better<br>
+              Well Done<br>
+              Superb Work
+            </td>
+            <td style="text-align: center">
+              <button onclick="edit_grades('67890')" id=67890_edit value="edit"> Edit Grades </button>
+            </td>
+          </tr>
+          <tr onclick="get_table_contents()" id="24680" value="None">
+            <td class="mdl-data-table__cell--non-numeric" colspan="3">Stella Cooper, Chester Robinson, Brooke Rogers, Edgar Richardson</td>
+            <td style="text-align: left">24680</td>
+            <td style="text-align: center">
+              <span class="material-icons">check_box_outline_blank</span>
+            </td>
+            <td style="text-align: center">
+              <span class="material-icons">check_box_outline_blank</span>
+            </td>
+          </tr>
+          <tr style="background-color: silver; visibility: collapse;" class="24680">
+            <td class="mdl-data-table__cell--non-numeric"><b>Members</b><br>Stella Cooper<br>Chester Robinson<br>Brooke Rogers<br>Edgar Richardson</td>
+            <td style="text-align: left"><b>Time Contribution</b><br>1 Hours<br>3 Hour<br>1 Hours<br>0.5 Hours</td>
+            <td style="text-align: left">(File/Submission)</td>
+            <td style="text-align: center" id="24680_grades"><b>Grade</b><br>
+              <input type="text" id="sample1" style="text-align: center"><br>
+              <input type="text" id="sample1" style="text-align: center"><br>
+              <input type="text" id="sample1" style="text-align: center"><br>
+              <input type="text" id="sample1" style="text-align: center"><br>
+          </td>
+          <td style="text-align: center" id="24680_comments"><b>Comments</b><br>
+            <input type="text" id="sample1" style="text-align: left"><br>
+            <input type="text" id="sample1" style="text-align: left"><br>
+            <input type="text" id="sample1" style="text-align: left"><br>
+            <input type="text" id="sample1" style="text-align: left"><br>
+          </td>
+          <td style="text-align: center">
+            <button onclick="edit_grades('24680')" id=24680_edit value="change"> Confirm Grade </button>
+          </td>
+        </tr>
+        </tbody> -->
+      </table>
+
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <div class="demo-avatar-dropdown">
+            <span><b>Your Units</b></span>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link accordion">UNIT 1</a>
+            <div class="panel">
+              <a class="mdl-navigation__link">Students</a>
+              <a class="mdl-navigation__link">Groups</a>
+              <a class="mdl-navigation__link">Tasks Assigned</a>
+              <a class="mdl-navigation__link">Grades</a>
+            </div>
+          <a class="mdl-navigation__link accordion">UNIT 2</a>
+            <div class="panel">
+              <a class="mdl-navigation__link" href="">Students</a>
+              <a class="mdl-navigation__link" href="">Groups</a>
+              <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+              <a class="mdl-navigation__link" href="">Grades</a>
+            </div>
+          <a class="mdl-navigation__link accordion">UNIT 3</a>
+            <div class="panel">
+              <a class="mdl-navigation__link" href="">Students</a>
+              <a class="mdl-navigation__link" href="">Groups</a>
+              <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+              <a class="mdl-navigation__link" href="">Grades</a>
+            </div>
+           <a class="mdl-navigation__link accordion">UNIT 4</a>
+            <div class="panel">
+              <a class="mdl-navigation__link" href="">Students</a>
+              <a class="mdl-navigation__link" href="">Groups</a>
+              <a class="mdl-navigation__link" href="">Tasks Assigned</a>
+              <a class="mdl-navigation__link" href="">Grades</a>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+          </nav>
+        </div>
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+      </body>
+  <script src="automated_html.js"></script>
+  <script src="UI_Interactive.js"></script>
+</html>
